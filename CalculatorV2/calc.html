@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erweiterter Taschenrechner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .calculator {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      transition: background-color 0.3s;
+    }
+    .dark-mode .calculator {
+      background: #1e1e1e;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+    .display {
+      width: 100%;
+      height: 50px;
+      font-size: 1.5em;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #eaeaea;
+    }
+    .dark-mode .display {
+      background: #333;
+      color: #fff;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .button {
+      padding: 15px;
+      font-size: 1.2em;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background: #0056b3;
+    }
+    .button.clear {
+      background: #dc3545;
+    }
+    .button.clear:hover {
+      background: #b02a37;
+    }
+    .button.advanced {
+      background: #28a745;
+    }
+    .button.advanced:hover {
+      background: #1e7e34;
+    }
+    .toggle-dark-mode {
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      background: #6c757d;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle-dark-mode:hover {
+      background: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" class="display" disabled>
+    <div class="buttons">
+      <button class="button" onclick="appendValue('7')">7</button>
+      <button class="button" onclick="appendValue('8')">8</button>
+      <button class="button" onclick="appendValue('9')">9</button>
+      <button class="button" onclick="appendValue('/')">/</button>
+      <button class="button" onclick="appendValue('4')">4</button>
+      <button class="button" onclick="appendValue('5')">5</button>
+      <button class="button" onclick="appendValue('6')">6</button>
+      <button class="button" onclick="appendValue('*')">*</button>
+      <button class="button" onclick="appendValue('1')">1</button>
+      <button class="button" onclick="appendValue('2')">2</button>
+      <button class="button" onclick="appendValue('3')">3</button>
+      <button class="button" onclick="appendValue('-')">-</button>
+      <button class="button" onclick="appendValue('0')">0</button>
+      <button class="button" onclick="appendValue('.')">.</button>
+      <button class="button" onclick="calculate()">=</button>
+      <button class="button" onclick="appendValue('+')">+</button>
+      <button class="button clear" onclick="clearDisplay()">C</button>
+      <button class="button advanced" onclick="appendValue('**2')">x²</button>
+      <button class="button advanced" onclick="appendValue('**(1/2)')">√x</button>
+      <button class="button advanced" onclick="appendValue('%')">%</button>
+      <button class="button advanced" onclick="appendValue('**')">^</button>
+    </div>
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Dark Mode</button>
+  </div>
+  <script src="calc.js"></script>
+</body>
+</html>
